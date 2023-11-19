@@ -1,0 +1,36 @@
+[tool.poetry]
+name = "demo-autoqa-coinmarketcap"
+version = "0.1.0"
+description = ""
+authors = ["Ivan Khokhlov <xxx.mailbox73@gmail.com>"]
+readme = "README.md"
+packages = [{ include = "demo_autoqa_coinmarketcap" }]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+selene = "2.0.0rc4"
+pytest = "^7.4.3"
+requests = "^2.31.0"
+allure-pytest = "^2.13.2"
+pydantic = "^2.5.1"
+pydantic-settings = "^2.1.0"
+python-dotenv = "^1.0.0"
+faker = "^20.0.3"
+curlify = "^2.2.1"
+structlog = "^23.2.0"
+black = "^23.11.0"
+appium-python-client = "^3.1.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+addopts = "-v --alluredir=allure-results --clean-alluredir"
+markers = [
+    "api: marks tests as part of the API suite",
+    "ui: marks tests as part of the UI suite",
+    "regress: marks tests as part of regression tests",
+    "smoke: marks tests as smoke tests"
+]
